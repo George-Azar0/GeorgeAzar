@@ -1,55 +1,126 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <link rel="stylesheet" href="style/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>whoami</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
   <img src="images/Blue-Rose.png" class="corner-rose">
-<img src="images/rosary-dark-gray.png" alt="" class="corner-rosary">
+  <img src="images/rosary-dark-gray.png" alt="" class="corner-rosary">
   <header>
     <h1>Whoami</h1>
   </header>
-<nav class="navbar">
-<ul class="container">
-<li><a href="index.html">Whoami</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="projects.html">Projects</a></li>
-</ul>
+  <nav class="navbar">
+    <ul class="container">
+      <li><a href="index.html">Whoami</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
 
-</nav>
-<br>
+  </nav>
+  <br>
   <main>
     <section class="card">
-      <h>Wie ben ik?</h2>
-<p>Mijn naam is Goerge Azar en ik kom uit syrië.
-  ik studeer ICT op HBO-niveau in THUAS, ik zit nu op de  tweede jaar.
-</p>
+      <h2>Wie ben ik?</h2>
+        <p>Mijn naam is Goerge Azar en ik kom uit syrië.
+          ik studeer ICT op HBO-niveau in THUAS, ik zit nu op de tweede jaar.
+        </p>
     </section>
 
     <section class="card">
       <h2>Wat zijn mijn hobby's :</h2>
-<ul class="list">
-<li>sporten: footballen en workouts</li>
-<li>muziek: luisteren en piano spelen </li>
-<li>design: characters en huizen designen</li>
-</ul>
+      <ul class="list">
+        <li>sporten: footballen en workouts</li>
+        <li>muziek: luisteren en piano spelen </li>
+        <li>design: characters en huizen designen</li>
+      </ul>
     </section>
+
+
+<section class="card weather-card" aria-labelledby="weather-title">
+  <h2 id="weather-title">Het weer</h2>
+
+  <button id="location-button" type="button">📍 Gebruik mijn locatie</button>
+
+  <div class="form-field">
+    <label for="city-search">Of zoek een stad</label>
+
+    <input id="city-search" type="text" placeholder="Bijvoorbeeld Den Haag" autocomplete="off">
+  </div>
+  <button id="city-search-button" type="button">Zoek weer</button>
+
+  <div id="weather-result" aria-live="polite" role="status"></div>
+</section>
+
+
+<section class="card pokemon-card" aria-labelledby="pokemon-title">
+  <h2 id="pokemon-title">My favorite Pokémon</h2>
+
+  <p id="pokemon-description">My favorite Pokémon is Marshadow!</p>
+  <div id="pokemon-display"></div>
+
+  <div class="form-field">
+    <label for="pokemon-search">Zoek een Pokémon</label>
+    <input id="pokemon-search" type="text" list="pokemon-list" placeholder="Bijvoorbeeld Pikachu" autocomplete="off">
+    <datalist id="pokemon-list"></datalist>
+  </div>
+
+  <button id="pokemon-search-button" type="button">Zoek Pokémon</button>
+
+  <div class="form-field animation-setting">
+    <label for="animations-enabled">Bewegende Pokémon-sprite</label>
+    <input id="animations-enabled" type="checkbox">
+  </div>
+
+  <div id="pokemon-status" aria-live="polite" role="status"></div>
+</section>
+
+<section class="card contact-card">
+  <h2>Neem contact op</h2>
+
+  <button id="contact-toggle" type="button">Contactformulier tonen</button>
+
+  <form id="contact-form" novalidate hidden>
+    <div class="form-field">
+      <label for="naam">Naam</label>
+      <input id="naam" type="text" required minlength="2" aria-describedby="naam-error" aria-invalid="false">
+<span id="naam-error" class="error" role="alert"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" required aria-describedby="email-error" aria-invalid="false">
+      <span id="email-error" class="error" role="alert"></span>
+    </div>
+
+    <div class="form-field">
+      <label for="bericht">Bericht</label>
+     <textarea id="bericht" required minlength="10" rows="4" aria-describedby="bericht-error" aria-invalid="false"></textarea>
+      <span id="bericht-error" class="error" role="alert"></span>
+    </div>
+
+    <button type="submit">Versturen</button>
+    <div id="form-status" role="status" aria-live="polite"></div>
+  </form>
+</section>
 
   </main>
 
-
-
-  <footer>  
+  <footer>
     <hr>
-    
-<p class="cr"> &copy; 2026 George Azar HHS WDPW </p>
-Outlook school email: <a href="mailto:25035258@student.hhs.nl"> 25035258@student.hhs.nl </a>  </footer>
+
+    <p class="cr"> &copy; 2026 George Azar HHS WDPW </p>
+    Outlook school email: <a href="mailto:25035258@student.hhs.nl"> 25035258@student.hhs.nl </a>
+  </footer>
+  <script src="js/script.js" defer></script>
 </body>
+
 </html>
