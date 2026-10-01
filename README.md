@@ -31,7 +31,7 @@ Een medestudent of recruiter checkt mijn portfolio tussen twee dingen door,
 op zijn telefoon  bijvoorbeeld in de trein of tussen colleges. Die persoon
 heeft weinig tijd, geen rustige werkplek, en wil snel en zonder moeite
 kunnen lezen wie ik ben en wat ik kan. Een druk of fel kleurenpalet, kleine
-tekst, of een layout die pas op desktop goed werkt, zorgt voor afhakers.
+tekst, of een layout die pas op desktop goed werkt.
 
 Twee ontwerpkeuzes die dit ondersteunen:
 
@@ -79,6 +79,50 @@ Twee ontwerpkeuzes die dit ondersteunen:
     Doordat die volgorde overal hetzelfde is, hoeft een
    bezoeker niet steeds opnieuw uit te zoeken waar hij moet kijken; hij
    herkent het patroon en kan sneller vergelijken tussen items.
+
+# JavaScript en API's
+
+**JavaScript-bestanden en functies**
+
+Voor de interactieve onderdelen gebruik ik JavaScript-bestanden voor de verschillende pagina's:
+
+- `js/script.js` — contactformulier, Pokémon API en weer API.
+- `js/projects.js` — projecten weergeven en filteren op technologie.
+- `js/blog.js` — blogposts weergeven, filteren op categorie en sorteren op datum.
+
+Belangrijke functies zijn onder andere `verwerkFormulier()`, `zoekPokemon()`, `laadPokemon()`, `haalWeer()`, `renderProjects()` en `renderPosts()`. Deze functies verwerken gebruikersinvoer, halen API-data op of zetten data om naar HTML.
+
+**DOM-methoden en events**
+
+Voor de interactie met de pagina gebruik ik onder andere:
+
+- `querySelector()` en `getElementById()` om HTML-elementen te selecteren.
+- `createElement()` om nieuwe HTML-elementen met JavaScript te maken.
+- `appendChild()` en `append()` om elementen aan de pagina toe te voegen.
+- `textContent` en `innerHTML` om inhoud op de pagina te tonen.
+- `addEventListener()` voor gebruikersacties zoals `click`, `submit`, `input` en `change`.
+
+Bij formulieren gebruik ik ook `checkValidity()` om te controleren of de ingevoerde gegevens geldig zijn.
+
+**Publieke API's**
+
+Voor mijn website heb ik twee publieke API's gekozen:
+
+- **PokéAPI** — voor Pokémon-data en sprites. Ik gebruik deze API omdat mijn website een Pokémon-onderdeel heeft en de API zonder API-key gebruikt kan worden.
+- **Open-Meteo** — voor actuele weergegevens en het zoeken van steden. Ik gebruik deze API omdat hiermee weerdata opgehaald kan worden zonder API-key.
+
+Naast de twee publieke API's gebruik ik ook een eigen datastructuur: de projecten (js/projects.js) en blogposts (js/blog.js) staan als array van objecten in JavaScript, niet hardgecodeerd in de HTML. Met forEach() en createElement() wordt voor elk object in de array een los HTML-element gebouwd en toegevoegd aan de pagina — zo sluiten de getoonde kaartjes direct aan op de onderliggende data, en verandert de interface automatisch mee als ik een project of post aan de array toevoeg.
+
+
+**Interface en data**
+
+De API-data wordt met `fetch()` opgehaald en met `await` verwerkt. Daarna zet JavaScript de ontvangen data om naar onderdelen van de interface.
+
+Bijvoorbeeld: wanneer een gebruiker een Pokémon zoekt, wordt de naam naar de PokéAPI gestuurd. De ontvangen naam en sprite worden daarna met JavaScript op de pagina weergegeven.
+
+Bij het weer kan de gebruiker zijn locatie gebruiken of een stad invoeren. De gevonden coördinaten worden naar Open-Meteo gestuurd, waarna de actuele weergegevens op de pagina worden getoond.
+
+Bij fouten gebruik ik `try/catch` en toon ik een foutmelding op de pagina in plaats van alleen een fout in de console.
 
 
 
